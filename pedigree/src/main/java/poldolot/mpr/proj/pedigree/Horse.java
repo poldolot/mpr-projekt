@@ -22,6 +22,17 @@ public class Horse {
 		this.breeder = breeder;
 	}
 
+	public Horse() {
+		this.id = -1;
+		this.name = null;
+		this.sex = null;
+		this.dob = null;
+		this.color = null;
+		this.sire = null;
+		this.dam = null;
+		this.breeder = null;
+	}
+
 	@Override
 	public String toString() {
 		return String.format("%d\t%-15s\t%-8s\t%-10s\t%s\t%s\t%s\t%s", this.id, this.name, this.sex.toString(), this.dob.toString(), this.color.getSname(),

@@ -95,7 +95,15 @@ public class DAO {
 	}
 	public static boolean deleteColor(Color color) {
 		String query = "DELETE FROM COLOR WHERE ID = " + color.getId();
+		String checkQuery = "SELECT ID FROM HORSE WHERE COLOR = " + color.getId();
 		try {
+			Statement checkStatement = dm.createStatement();
+			ResultSet rs = checkStatement.executeQuery(checkQuery);
+			while (rs.next()) {
+				DAO.setMessage("Kolor jest uzywany i nie mozna go usunac.");
+				return false;
+			}
+			updateTableBeforeDelete("HORSE", "COLOR", color.getId());
 			Statement statement = dm.createStatement();
 			statement.executeUpdate(query);
 			return true;
@@ -199,6 +207,7 @@ public class DAO {
 	public static boolean deleteCountry(Country country) {
 		String query = "DELETE FROM COUNTRY WHERE ID = " + country.getId();
 		try {
+			updateTableBeforeDelete("BREEDER", "COUNTRY", country.getId());
 			Statement statement = dm.createStatement();
 			statement.executeUpdate(query);
 			return true;
@@ -306,6 +315,7 @@ public class DAO {
 	public static boolean deleteBreeder(Breeder breeder) {
 		String query = "DELETE FROM BREEDER WHERE ID = " + breeder.getId();
 		try {
+			updateTableBeforeDelete("HORSE", "BREEDER", breeder.getId());
 			Statement statement = dm.createStatement();
 			statement.executeUpdate(query);
 			return true;
@@ -443,12 +453,7 @@ public class DAO {
 		try {
 			if (!horse.getSex().toString().equals("GELDING")) {
 				String sex = horse.getSex().toString().equals("STALLION") ? "SIRE" : "DAM";
-				String query = "UPDATE HORSE SET "+sex+" = ? WHERE "+sex+" = ?";
-				PreparedStatement preparedStatement;
-				preparedStatement = dm.prepareStatement(query);
-				preparedStatement.setNull(1, Types.INTEGER);
-				preparedStatement.setFloat(2, horse.getId());
-				preparedStatement.executeUpdate();
+				updateTableBeforeDelete("HORSE", sex, horse.getId());
 			}
 
 			String query = "DELETE FROM HORSE WHERE ID = " + horse.getId();
@@ -528,6 +533,19 @@ public class DAO {
 			e.printStackTrace();
 		}
 		return null;
+	}
+
+	private static void updateTableBeforeDelete(String table, String column, long id) {
+		String query = "UPDATE " + table + " SET " + column + " = ? WHERE " + column + " = ?";
+		try {
+			PreparedStatement preparedStatement;
+			preparedStatement = dm.prepareStatement(query);
+			preparedStatement.setNull(1, Types.INTEGER);
+			preparedStatement.setFloat(2, id);
+			preparedStatement.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	private static int readSexId(String name) {

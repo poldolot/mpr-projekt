@@ -2,9 +2,12 @@ package poldolot.mpr.proj;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.sql.*;
+
+import com.itextpdf.text.DocumentException;
 
 import poldolot.mpr.proj.libs.EasyIn;
 import poldolot.mpr.proj.pedigree.*;
@@ -96,6 +99,18 @@ public class Commands {
 			if (horse != null) {
 				System.out.println(String.format("%s\t%-15s\t%-8s\t%-10s\t%s\t%s\t%s\t%s\n", "id", "imie", "plec", "data ur.", "masc", "ojciec", "matka", "hodowca"));
 				System.out.println(horse.toString());
+				System.out.print("Czy wygenerowac rodowod dla danego konia? (y/n)\n$ ");
+				String generate = EasyIn.getString();
+				if (generate.equals("Y") || generate.equals("y")) {
+					System.out.print("Jakies glebokosci ma byc rodowod?\n$ ");
+					Integer deep = EasyIn.getInt();
+					try {
+						GeneratePDF pdf = new GeneratePDF(Integer.parseInt(id), deep);
+						DAO.setMessage("Wygenerowano plik PDF.");
+					} catch (Exception e) {
+						DAO.setMessage("Blad generowania pliku PDF.");
+					}
+				}
 			} else {
 				DAO.setMessage("Podanego konia nie ma w bazie.");
 			}
@@ -331,8 +346,9 @@ public class Commands {
 		String lname = EasyIn.getString();
 		Color color = DAO.readColorByName(lname);
 		if (color != null) {
-			DAO.deleteColor(color);
-			DAO.setMessage("Kolor zostal usuniety.");
+			if (DAO.deleteColor(color)) {
+				DAO.setMessage("Kolor zostal usuniety.");
+			}
 		} else {
 			DAO.setMessage("Podanego koloru nie ma w bazie.");
 		}
