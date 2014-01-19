@@ -1,3 +1,10 @@
+INSERT INTO "BREEDER" ( "ID", "NAME", "COUNTRY" ) VALUES
+(0, 'Milky Way', 162),
+(1, 'Rodeo', 162),
+(2, 'The Best', 116),
+(3, 'White Road', 56),
+(4, 'Miracles', 88);
+
 INSERT INTO "HORSE" ( "ID", "NAME", "SEX", "COLOR", "DOB", "YEARONLY", "DAM", "SIRE", "BREEDER" ) VALUES
 (0, 'Bold Ruler',		 1, 3, '1954-01-01', true, null, null, 0),
 (1, 'Magneto',			 0, 2, '1953-01-01', true, null, null, 0),
