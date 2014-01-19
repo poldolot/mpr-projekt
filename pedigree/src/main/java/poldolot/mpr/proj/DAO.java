@@ -1,10 +1,7 @@
 package poldolot.mpr.proj;
 import java.util.*;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import java.sql.*;
 
-import poldolot.mpr.proj.libs.EasyIn;
 import poldolot.mpr.proj.pedigree.*;
 
 public class DAO {
@@ -33,7 +30,7 @@ public class DAO {
 			return false;
 		}
 	}
-	public static List readColors() {
+	public static List<Color> readColors() {
 		String query = "SELECT * FROM COLOR ORDER BY lname ASC";
 		try {
 			List<Color> colors = new LinkedList<Color>();
@@ -144,7 +141,7 @@ public class DAO {
 			return false;
 		}
 	}
-	public static List readCountries() {
+	public static List<Country> readCountries() {
 		String query = "SELECT * FROM COUNTRY ORDER BY name ASC";
 		try {
 			List<Country> countries = new LinkedList<Country>();
@@ -248,7 +245,7 @@ public class DAO {
 			return false;
 		}
 	}
-	public static List readBreeders() {
+	public static List<Breeder> readBreeders() {
 		String query = "SELECT * FROM BREEDER ORDER BY name ASC";
 		try {
 			List<Breeder> breeders = new LinkedList<Breeder>();
@@ -374,7 +371,7 @@ public class DAO {
 			return false;
 		}
 	}
-	public static List readHorses() {
+	public static List<Horse> readHorses() {
 		String query = "SELECT * FROM HORSE ORDER BY name ASC";
 		try {
 			List<Horse> horses = new LinkedList<Horse>();
@@ -513,7 +510,7 @@ public class DAO {
 		}
 		return false;
 	}
-	public static List readDescendants(Horse horse) {
+	public static List<Horse> readDescendants(Horse horse) {
 		if (horse.getSex().toString().equals("GELDING")) {
 			setMessage("To jest walach, nie ma potomstwa!");
 			return null;

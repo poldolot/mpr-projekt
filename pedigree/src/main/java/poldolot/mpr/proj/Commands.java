@@ -2,13 +2,8 @@ package poldolot.mpr.proj;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
-import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.sql.*;
-
-import com.itextpdf.text.DocumentException;
-
 import poldolot.mpr.proj.libs.EasyIn;
 import poldolot.mpr.proj.pedigree.*;
 
@@ -74,8 +69,8 @@ public class Commands {
 				break;
 			loop++;
 		} while (!DAO.ifBreederExist(bname));
-		Breeder b = bname.equals("") ? null : DAO.readBreederByName(bname);
-		Horse horse = new Horse(0, name.length() > 40 ? name.substring(0, 40) : name, Sex.valueOf(sex.toUpperCase()), dob, DAO.readColorByName(cname), sire, dam, DAO.readBreederByName(bname));
+		Breeder breeder = bname.equals("") ? null : DAO.readBreederByName(bname);
+		Horse horse = new Horse(0, name.length() > 40 ? name.substring(0, 40) : name, Sex.valueOf(sex.toUpperCase()), dob, DAO.readColorByName(cname), sire, dam, breeder);
 		if (DAO.createHorse(horse)) {
 			DAO.setMessage("Kon zostal dodany.");
 		}
@@ -105,7 +100,7 @@ public class Commands {
 					System.out.print("Jakies glebokosci ma byc rodowod?\n$ ");
 					Integer deep = EasyIn.getInt();
 					try {
-						GeneratePDF pdf = new GeneratePDF(Integer.parseInt(id), deep);
+						new GeneratePDF(Integer.parseInt(id), deep);
 						DAO.setMessage("Wygenerowano plik PDF.");
 					} catch (Exception e) {
 						DAO.setMessage("Blad generowania pliku PDF.");
@@ -176,8 +171,8 @@ public class Commands {
 					break;
 				loop++;
 			} while (!DAO.ifBreederExist(bname));
-			Breeder b = bname.equals("") ? null : DAO.readBreederByName(bname);
-			horse = new Horse(horse.getId(), name.length() > 40 ? name.substring(0, 40) : name, Sex.valueOf(sex.toUpperCase()), dob, DAO.readColorByName(cname), sire, dam, DAO.readBreederByName(bname));
+			Breeder breeder = bname.equals("") ? null : DAO.readBreederByName(bname);
+			horse = new Horse(horse.getId(), name.length() > 40 ? name.substring(0, 40) : name, Sex.valueOf(sex.toUpperCase()), dob, DAO.readColorByName(cname), sire, dam, breeder);
 			if (DAO.updateHorse(horse)) {
 				DAO.setMessage("Kon zostal zmodyfikowany.");
 			}

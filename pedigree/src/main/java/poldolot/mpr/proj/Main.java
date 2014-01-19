@@ -1,5 +1,4 @@
 package poldolot.mpr.proj;
-import java.util.*;
 import java.sql.*;
 
 import poldolot.mpr.proj.libs.EasyIn;
@@ -47,6 +46,8 @@ public class Main {
 							case "descendants":
 								command += userChoice.substring(0,1).toUpperCase() + userChoice.substring(1);
 								break;
+							case "quit":
+								break;
 							default:
 								userChoice = "error";
 								System.out.println("Wybrano bledna komende!");
@@ -65,5 +66,6 @@ public class Main {
 			System.out.println("Wystapil blad!");
 			e.printStackTrace();
 		}
+		System.out.println("Koniec programu.");
 	}
 }
