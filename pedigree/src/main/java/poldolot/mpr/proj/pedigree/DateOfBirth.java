@@ -36,4 +36,14 @@ public class DateOfBirth {
 			return new SimpleDateFormat("yyyy-MM-dd").format(date);
 		}
 	}
+
+	@Override
+	public boolean equals(Object aThat) {
+		if ( this == aThat ) return true;
+		if (!(aThat instanceof DateOfBirth)) return false;
+		DateOfBirth that = (DateOfBirth)aThat;
+		return
+			this.date.equals(that.date) &&
+			this.yearOnly.equals(that.yearOnly);
+	}
 }

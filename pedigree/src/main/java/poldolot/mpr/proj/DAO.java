@@ -463,13 +463,13 @@ public class DAO {
 		}
 	}
 	public static boolean ifHorseExist(Horse horse) {
-		// TODO dokladniejsze sprawdzanie czy kon istnieje w bazie
-		String query = "SELECT * FROM HORSE WHERE NAME = '" + horse.getName() + "'";
+		String query = "SELECT ID FROM HORSE WHERE NAME = '" + horse.getName() + "'";
 		try {
 			Statement statement = dm.createStatement();
 			ResultSet rs = statement.executeQuery(query);
 			while (rs.next()) {
-				return true;
+				if (horse.equals(readHorseById(rs.getInt("ID"))))
+					return true;
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

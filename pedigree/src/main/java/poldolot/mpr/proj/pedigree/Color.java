@@ -41,4 +41,21 @@ public class Color {
 		return String.format("%5d %-16s %-8s", this.id, this.lname, this.sname);
 	}
 
+	@Override
+	public int hashCode() {
+		int hash = 1;
+		hash = hash * 17 + lname.hashCode();
+		hash = hash * 31 + sname.hashCode();
+		return hash;
+	}
+
+	@Override
+	public boolean equals(Object aThat) {
+		if ( this == aThat ) return true;
+		if (!(aThat instanceof Color)) return false;
+		Color that = (Color)aThat;
+		return
+			this.lname.equals(that.lname) &&
+			this.sname.equals(that.sname);
+	}
 }

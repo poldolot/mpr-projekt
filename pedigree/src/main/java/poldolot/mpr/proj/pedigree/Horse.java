@@ -49,9 +49,9 @@ public class Horse {
 			this.sex.equals(that.sex) &&
 			this.dob.equals(that.dob) &&
 			this.color.equals(that.color) &&
-			this.sire.equals(that.sire) &&
-			this.dam.equals(that.dam) &&
-			this.breeder.equals(that.breeder);
+			this.sire != null ? (that.sire == null ? false : this.sire.equals(that.sire)) : (that.sire == null ? true : false) &&
+			this.dam != null ? (that.dam == null ? false : this.dam.equals(that.dam)) : (that.dam == null ? true : false) &&
+			this.breeder != null ? (that.breeder == null ? false : this.breeder.equals(that.breeder)) : (that.breeder == null ? true : false);
 	}
 
 	@Override

@@ -99,16 +99,38 @@ public class Commands {
 				if (generate.equals("Y") || generate.equals("y")) {
 					System.out.print("Jakies glebokosci ma byc rodowod?\n$ ");
 					Integer deep = EasyIn.getInt();
+					tree(deep, horse, "");
 					try {
 						new GeneratePDF(Integer.parseInt(id), deep);
-						DAO.setMessage("Wygenerowano plik PDF.");
+						DAO.setMessage("\nWygenerowano plik PDF.");
 					} catch (Exception e) {
-						DAO.setMessage("Blad generowania pliku PDF.");
+						DAO.setMessage("\nBlad generowania pliku PDF.");
 					}
 				}
 			} else {
 				DAO.setMessage("Podanego konia nie ma w bazie.");
 			}
+		}
+	}
+
+	private static void tree(Integer deep, Horse horse, String indent) {
+		String name = "";
+		if (horse.getName() != null) {
+			name = indent + horse.getName();
+		} else {
+			name = indent + "---";
+		}
+
+		if (horse.getSire() != null && deep > 0) {
+			tree(deep - 1, horse.getSire(), indent + "\t\t");
+		} else if (horse.getSire() == null && deep > 0) {
+			tree(deep - 1, new Horse(), indent + "\t\t");
+		}
+		System.out.println(name);
+		if (horse.getDam() != null && deep > 0) {
+			tree(deep - 1, horse.getDam(), indent + "\t\t");
+		} else if (horse.getDam() == null && deep > 0) {
+			tree(deep - 1, new Horse(), indent + "\t\t");
 		}
 	}
 

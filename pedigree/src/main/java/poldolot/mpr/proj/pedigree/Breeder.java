@@ -37,4 +37,14 @@ public class Breeder {
 		return String.format("%5d %s %2s", this.id, this.name, this.country.getCode());
 	}
 
+	@Override
+	public boolean equals(Object aThat) {
+		if ( this == aThat ) return true;
+		if (!(aThat instanceof Breeder)) return false;
+		Breeder that = (Breeder)aThat;
+		return
+			this.name.equals(that.name) &&
+			this.country.equals(that.country);
+	}
+
 }
