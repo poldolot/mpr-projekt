@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite failures="0" time="8.177" errors="0" skipped="19" tests="29" name="poldolot.mpr.test.TestDAO">
+<testsuite failures="0" time="5.63" errors="0" skipped="19" tests="29" name="poldolot.mpr.test.TestDAO">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/opt/devel/jdk1.7.0_40/jre/lib/i386"/>
@@ -59,71 +59,71 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase time="2.069" classname="poldolot.mpr.test.TestDAO" name="testDeleteColor"/>
-  <testcase time="2.075" classname="poldolot.mpr.test.TestDAO" name="testDeleteHorse">
+  <testcase time="0.77" classname="poldolot.mpr.test.TestDAO" name="testDeleteColor"/>
+  <testcase time="0.775" classname="poldolot.mpr.test.TestDAO" name="testDeleteHorse">
     <skipped/>
   </testcase>
-  <testcase time="0.126" classname="poldolot.mpr.test.TestDAO" name="testReadColors"/>
-  <testcase time="0.126" classname="poldolot.mpr.test.TestDAO" name="testDeleteCountry">
+  <testcase time="0.129" classname="poldolot.mpr.test.TestDAO" name="testReadColors"/>
+  <testcase time="0.13" classname="poldolot.mpr.test.TestDAO" name="testDeleteCountry">
     <skipped/>
   </testcase>
-  <testcase time="0.126" classname="poldolot.mpr.test.TestDAO" name="testReadHorseById">
+  <testcase time="0.13" classname="poldolot.mpr.test.TestDAO" name="testReadHorseById">
     <skipped/>
   </testcase>
-  <testcase time="0.128" classname="poldolot.mpr.test.TestDAO" name="testReadBreederByName">
+  <testcase time="0.13" classname="poldolot.mpr.test.TestDAO" name="testReadBreederByName">
     <skipped/>
   </testcase>
-  <testcase time="0.128" classname="poldolot.mpr.test.TestDAO" name="testReadHorses">
+  <testcase time="0.13" classname="poldolot.mpr.test.TestDAO" name="testReadHorses">
     <skipped/>
   </testcase>
-  <testcase time="0.132" classname="poldolot.mpr.test.TestDAO" name="testUpdateColor"/>
-  <testcase time="0.133" classname="poldolot.mpr.test.TestDAO" name="testUpdateHorse">
+  <testcase time="0.123" classname="poldolot.mpr.test.TestDAO" name="testUpdateColor"/>
+  <testcase time="0.123" classname="poldolot.mpr.test.TestDAO" name="testUpdateHorse">
     <skipped/>
   </testcase>
-  <testcase time="0.126" classname="poldolot.mpr.test.TestDAO" name="testCreateColor"/>
-  <testcase time="0.247" classname="poldolot.mpr.test.TestDAO" name="testCreateHorse"/>
-  <testcase time="0.247" classname="poldolot.mpr.test.TestDAO" name="testIfCountryExist">
+  <testcase time="0.119" classname="poldolot.mpr.test.TestDAO" name="testCreateColor"/>
+  <testcase time="0.263" classname="poldolot.mpr.test.TestDAO" name="testCreateHorse"/>
+  <testcase time="0.264" classname="poldolot.mpr.test.TestDAO" name="testIfCountryExist">
     <skipped/>
   </testcase>
-  <testcase time="0.248" classname="poldolot.mpr.test.TestDAO" name="testIfBreederExist">
+  <testcase time="0.265" classname="poldolot.mpr.test.TestDAO" name="testIfBreederExist">
     <skipped/>
   </testcase>
-  <testcase time="0.248" classname="poldolot.mpr.test.TestDAO" name="testReadDescendants">
+  <testcase time="0.265" classname="poldolot.mpr.test.TestDAO" name="testReadDescendants">
     <skipped/>
   </testcase>
-  <testcase time="0.249" classname="poldolot.mpr.test.TestDAO" name="testReadBreeders">
+  <testcase time="0.266" classname="poldolot.mpr.test.TestDAO" name="testReadBreeders">
     <skipped/>
   </testcase>
-  <testcase time="0.119" classname="poldolot.mpr.test.TestDAO" name="testReadColorByName"/>
+  <testcase time="0.12" classname="poldolot.mpr.test.TestDAO" name="testReadColorByName"/>
   <testcase time="0.12" classname="poldolot.mpr.test.TestDAO" name="testCreateBreeder">
     <skipped/>
   </testcase>
-  <testcase time="0.12" classname="poldolot.mpr.test.TestDAO" name="testUpdateBreeder">
+  <testcase time="0.121" classname="poldolot.mpr.test.TestDAO" name="testUpdateBreeder">
     <skipped/>
   </testcase>
-  <testcase time="0.12" classname="poldolot.mpr.test.TestDAO" name="testCreateCountry">
+  <testcase time="0.121" classname="poldolot.mpr.test.TestDAO" name="testCreateCountry">
     <skipped/>
   </testcase>
-  <testcase time="0.128" classname="poldolot.mpr.test.TestDAO" name="testIfHorseIsSire"/>
-  <testcase time="0.129" classname="poldolot.mpr.test.TestDAO" name="testReadCountries">
+  <testcase time="0.131" classname="poldolot.mpr.test.TestDAO" name="testIfHorseIsSire"/>
+  <testcase time="0.132" classname="poldolot.mpr.test.TestDAO" name="testReadCountries">
     <skipped/>
   </testcase>
-  <testcase time="0.129" classname="poldolot.mpr.test.TestDAO" name="testUpdateCountry">
+  <testcase time="0.133" classname="poldolot.mpr.test.TestDAO" name="testUpdateCountry">
     <skipped/>
   </testcase>
-  <testcase time="0.13" classname="poldolot.mpr.test.TestDAO" name="testReadCountryByName">
+  <testcase time="0.134" classname="poldolot.mpr.test.TestDAO" name="testReadCountryByName">
     <skipped/>
   </testcase>
-  <testcase time="0.13" classname="poldolot.mpr.test.TestDAO" name="testIfHorseExist">
+  <testcase time="0.134" classname="poldolot.mpr.test.TestDAO" name="testIfHorseExist">
     <skipped/>
   </testcase>
-  <testcase time="0.119" classname="poldolot.mpr.test.TestDAO" name="testIfHorseIsDam"/>
-  <testcase time="0.119" classname="poldolot.mpr.test.TestDAO" name="testDeleteBreeder">
+  <testcase time="0.121" classname="poldolot.mpr.test.TestDAO" name="testIfHorseIsDam"/>
+  <testcase time="0.121" classname="poldolot.mpr.test.TestDAO" name="testDeleteBreeder">
     <skipped/>
   </testcase>
-  <testcase time="0.139" classname="poldolot.mpr.test.TestDAO" name="testReadColorById"/>
-  <testcase time="0.14" classname="poldolot.mpr.test.TestDAO" name="testReadBreederById">
+  <testcase time="0.119" classname="poldolot.mpr.test.TestDAO" name="testReadColorById"/>
+  <testcase time="0.12" classname="poldolot.mpr.test.TestDAO" name="testReadBreederById">
     <skipped/>
   </testcase>
-  <testcase time="0.127" classname="poldolot.mpr.test.TestDAO" name="testIfColorExist"/>
+  <testcase time="0.121" classname="poldolot.mpr.test.TestDAO" name="testIfColorExist"/>
 </testsuite>
