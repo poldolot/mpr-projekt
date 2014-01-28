@@ -1,13 +1,17 @@
 package poldolot.mpr.proj;
 import java.sql.*;
+import java.util.Properties;
 
 import poldolot.mpr.proj.libs.EasyIn;
 
 public class Main {
 	public static void main(String[] args) {
 		try {
-			Class.forName("org.hsqldb.jdbcDriver");
-			Connection dm = DriverManager.getConnection("jdbc:hsqldb:hsql://localhost/workdb","sa","");
+			Properties prop = new Properties();
+			// zaladowanie konfiguracji
+			prop.load(Main.class.getResourceAsStream("/jdbc.properties"));
+			Class.forName(prop.getProperty("jdbc.driver"));
+			Connection dm = DriverManager.getConnection(prop.getProperty("jdbc.url"),prop.getProperty("jdbc.user"),"");
 			DAO.setConnection(dm);
 
 			System.out.println("Genealogia koni - projekt z Metod programowania na PJWSTK");
